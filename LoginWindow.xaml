@@ -1,0 +1,40 @@
+<Window x:Class="wpf_start.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpf_start"
+        mc:Ignorable="d"
+        Title="Login" Height="500" Width="400"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="TextBlock" x:Key="HoverUnderlineStyle">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="TextBlock.TextDecorations" Value="Underline" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height = "190"/>
+                <RowDefinition Height = "185"/>
+                <RowDefinition Height = "70"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Row="0" Grid.ColumnSpan="2" Source="/images/login.png"/>
+            <StackPanel Grid.Row = "1" Grid.ColumnSpan="2">
+                <Label FontWeight="Bold" Margin="10,0,0,0" >User Name :</Label>
+                <TextBox x:Name="lusername" Padding = "10" Margin = "25,5,25,5" />
+                <Label FontWeight="Bold" Margin="10,0,0,0">Password :</Label>
+                <PasswordBox x:Name="lpassword" Padding = "10" Margin = "25,5,25,15" />
+                <TextBlock Style="{StaticResource HoverUnderlineStyle}" HorizontalAlignment="Center" MouseLeftButtonDown="Sign_Up" Foreground="Red"  >Dont have an account ? Sign Up</TextBlock>
+            </StackPanel>
+            <Button  FontSize="14" FontWeight="Bold" IsDefault="True" Click="Login_Click" Padding = "10" Margin = "15,10,5,10" Grid.Row = "2" Grid.Column="0">Login</Button>
+            <Button  FontSize="14" FontWeight="Bold" IsCancel="True" Click="Exit_Click" Padding = "10" Margin = "5,10,15,10" Grid.Row = "2" Grid.Column="1">Exit</Button>
+    </Grid>
+</Window>
